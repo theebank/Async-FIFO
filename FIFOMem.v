@@ -4,7 +4,7 @@ module FIFOMem #(
 ) (
     input   [DATASIZE-1: 0] wdata,
     output  [DATASIZE-1: 0] rdata,
-    input   [DATASIZE-1: 0] waddr, raddr,
+    input   [ADDRSIZE-1: 0] waddr, raddr,
     input wclken,
     input wclk,
     input wfull

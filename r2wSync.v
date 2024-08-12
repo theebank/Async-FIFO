@@ -8,7 +8,7 @@ module r2wSync #(
 
     reg [ADDRSIZE:0] wq1_rptr;
 
-    always @(posedge wclk) begin
+    always @(posedge wclk or negedge wrst_n) begin
         if(!wrst_n) begin
             {wq2_rptr,wq1_rptr} <= 0;
         end else begin
