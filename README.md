@@ -1,4 +1,7 @@
 # Top level module
+- ## Block Diagram
+
+    ![alt text](image.png)
 
 - ## AsyncFifo
     - Top level module for the asynchronous FIFO 
@@ -21,7 +24,11 @@
         - wrst_n/rrst_n
             - Signal used to reset the FIFO, both of these are able to clear the FIFO and are intended to be asynchronously set. However, they are synchronously removed.
 
-# 5 main sub-components:
+# Sub-Design:
+- ## Block Diagram
+
+    ![alt text](image-1.png)
+
 - ## FIFOMem
     - As data is fed into the FIFO from the write clock domain, data needs to be stored somewhere so it can be read from the read clock domain. This module is responsible for that.
 - ## rptrEmpty
