@@ -10,9 +10,9 @@
             - Flag which indicates whether the FIFO is currently full. If this is high, the FIFO will not allow any further write operations until space is made.
         - rempty 
             - Flag which indicates whether the FIFO is currently empty. If this is high, the FIFO will not allow any further read operations until elements are added.
-        - winc 
+        - win 
             - Signal which instructs the FIFO to insert an element from the input stream into the FIFO memory. 
-        - rinc
+        - rout
             - Signal which instructs the FIFO to remove an element from the FIFO memory and insert it into the output stream.
         - wclk
             - Clock in the write domain (Generally, the clock with a lower period)

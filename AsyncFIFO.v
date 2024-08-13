@@ -12,8 +12,8 @@ module AsyncFIFO #(
     input   [DSIZE-1:0]       wdata,
     output  [DSIZE-1:0]       rdata,
     output  wfull, rempty,
-    input   winc, wclk, wrst_n,
-    input   rinc, rclk, rrst_n
+    input   win, wclk, wrst_n,
+    input   rout, rclk, rrst_n
 );
     wire [ASIZE-1:0]  waddr, raddr;
     wire [ASIZE:0] wptr,rptr,wq2_rptr,rq2_wptr;
@@ -32,7 +32,7 @@ module AsyncFIFO #(
                                     .rdata(rdata),
                                     .waddr(waddr),
                                     .raddr(raddr),
-                                    .wclken(winc),
+                                    .wclken(win),
                                     .wfull(wfull),
                                     .wclk(wclk));
     
@@ -40,7 +40,7 @@ module AsyncFIFO #(
                                     .rptr(rptr),
                                     .raddr(raddr),
                                     .rq2_wptr(rq2_wptr),
-                                    .rinc(rinc),
+                                    .rout(rout),
                                     .rclk(rclk),
                                     .rrst_n(rrst_n));
     
@@ -48,7 +48,7 @@ module AsyncFIFO #(
                                     .wptr(wptr),
                                     .waddr(waddr),
                                     .wq2_rptr(wq2_rptr),
-                                    .winc(winc),
+                                    .win(win),
                                     .wclk(wclk),
                                     .wrst_n(wrst_n));
 endmodule

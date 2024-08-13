@@ -5,7 +5,7 @@ module rptrEmpty #(
     output reg  [ADDRSIZE:0]    rptr,
     output      [ADDRSIZE-1:0]  raddr,
     input       [ADDRSIZE:0]    rq2_wptr,
-    input                       rinc, rclk, rrst_n
+    input                       rout, rclk, rrst_n
 );
     reg [ADDRSIZE:0]    rbin;
     wire [ADDRSIZE:0]    rgnext, rbnext;
@@ -17,7 +17,7 @@ module rptrEmpty #(
             {rbin,rptr} <= {rbnext, rgnext};
         end
     end
-    assign rbnext = rbin +(rinc&~rempty);
+    assign rbnext = rbin +(rout&~rempty);
     assign rgnext = (rbnext>>1) ^ rbnext;
     assign raddr = rbin[ADDRSIZE-1:0];
 

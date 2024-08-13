@@ -5,7 +5,7 @@ module wptrFull #(
     output reg  [ADDRSIZE:0]    wptr,
     output      [ADDRSIZE-1:0]  waddr,
     input       [ADDRSIZE:0]      wq2_rptr,
-    input                       winc,wclk,wrst_n
+    input                       win,wclk,wrst_n
 );
     reg [ADDRSIZE:0]    wbin;
     wire[ADDRSIZE:0]    wgnext,wbnext;
@@ -17,7 +17,7 @@ module wptrFull #(
             {wbin,wptr} <= {wbnext,wgnext};
         end
     end
-    assign wbnext = wbin + (winc & ~wfull);
+    assign wbnext = wbin + (win & ~wfull);
     assign wgnext = (wbnext<<1) ^ wbnext;
     assign waddr = wbin[ADDRSIZE-1:0];
 
