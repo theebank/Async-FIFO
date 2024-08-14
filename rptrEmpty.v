@@ -12,7 +12,7 @@ module rptrEmpty #(
 
     always @(posedge rclk or negedge rrst_n) begin
         if(!rrst_n) begin
-            {rbin,rptr} <= 0;
+            {rbin,rptr} <= '0;
         end else begin
             {rbin,rptr} <= {rbnext, rgnext};
         end

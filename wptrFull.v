@@ -12,7 +12,7 @@ module wptrFull #(
 
     always @(posedge wclk or negedge wrst_n) begin
         if(!wrst_n) begin
-            {wbin,wptr} <= 0;
+            {wbin,wptr} <= '0;
         end else begin
             {wbin,wptr} <= {wbnext,wgnext};
         end
